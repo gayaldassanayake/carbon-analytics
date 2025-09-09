@@ -23,7 +23,8 @@ This project contains compontents which implements common functionalities used i
 ### Prerequisites
 * Java 8 or above
 * [Apache Maven](https://maven.apache.org/download.cgi#) 3.x.x
-* [Node.js](https://nodejs.org/en/) 8.x.x or above
+* [Node.js](https://nodejs.org/en/) 8.x.x
+* [Python](https://www.python.org/downloads/) 2.x.x
 ### Steps
 1. Install above prerequisites if they have not been already installed
 2. Get a clone from [this](https://github.com/wso2/carbon-analytics.git) repository

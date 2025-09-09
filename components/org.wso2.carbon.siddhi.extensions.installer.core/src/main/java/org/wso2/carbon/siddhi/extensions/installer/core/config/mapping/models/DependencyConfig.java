@@ -63,4 +63,8 @@ public class DependencyConfig {
         return name + "-" + version;
     }
 
+    public String getVersion() {
+        return version;
+    }
+
 }

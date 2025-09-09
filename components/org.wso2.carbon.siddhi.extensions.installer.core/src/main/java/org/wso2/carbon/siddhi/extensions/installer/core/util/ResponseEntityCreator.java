@@ -22,6 +22,7 @@ import org.wso2.carbon.siddhi.extensions.installer.core.config.mapping.models.De
 import org.wso2.carbon.siddhi.extensions.installer.core.config.mapping.models.ExtensionConfig;
 import org.wso2.carbon.siddhi.extensions.installer.core.execution.DependencyRetriever;
 import org.wso2.carbon.siddhi.extensions.installer.core.models.SiddhiAppExtensionUsage;
+import org.wso2.carbon.siddhi.extensions.installer.core.models.enums.ExtensionAdditionStatus;
 import org.wso2.carbon.siddhi.extensions.installer.core.models.enums.ExtensionInstallationStatus;
 import org.wso2.carbon.siddhi.extensions.installer.core.models.enums.ExtensionUnInstallationStatus;
 
@@ -56,6 +57,7 @@ public class ResponseEntityCreator {
     private static final String USAGES_KEY = "usages";
     private static final String INSTALLATION_INCOMPLETE_EXTENSIONS_KEY = "installationIncompleteExtensions";
     private static final String MANUALLY_REQUIRED_INSTALLATIONS = "manuallyRequiredInstallations";
+    private static final String EXTENSIONS_KEY = "extensions";
 
     private ResponseEntityCreator() {
         // Prevents instantiation.
@@ -86,6 +88,17 @@ public class ResponseEntityCreator {
             extension.getManuallyInstallableDependencies(),
             extension.getAutoDownloadableDependencies(),
             details);
+        return details;
+    }
+
+    public static Map<String, Object> createExtensionAdditionResponse(
+        Map<String, ExtensionConfig> extensionConfigs,
+        ExtensionAdditionStatus status
+    ) {
+        Map<String, Object> details = new HashMap<>();
+        details.put(ACTION_TYPE_KEY, "ADD");
+        details.put(ACTION_STATUS_KEY, status);
+        details.put(EXTENSIONS_KEY, extensionConfigs);
         return details;
     }
 
